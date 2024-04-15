@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Model\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Model\logo.png" />
+  </ItemGroup>
+
 </Project>

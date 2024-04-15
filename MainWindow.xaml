@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:MultiPayCalc"
         xmlns:view="clr-namespace:MultiPayCalc.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Icon="Model/logo.png"
+        Title="MultiPayCalc" Height="450" Width="800">
     <Grid>
         <view:MultiPayCalcView/>
     </Grid>
