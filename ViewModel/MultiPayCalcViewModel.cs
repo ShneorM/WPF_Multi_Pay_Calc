@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using MultiPayCalc.Model;
 
@@ -25,22 +23,35 @@ public class MultiPayCalcViewModel : INotifyPropertyChanged
     private void addUser()
     {
         PayList.Add(new Person { name = Name, paid = Paid });
+        Clean();
     }
     private void Clear()
     {
         PayList.Clear();
     }
+    private void Clean()
+    {
+        Name = "";
+        Paid = 0;
+    }
     private void Calc()
     {
+        if(PayList.Count <= 0)
+        {
+            MessageBox.Show("Enter payments");
+            return;
+        }
         var calcResult = CalculationOfPayments.calc(PayList.ToList());
         string res = "";
         foreach (var user in calcResult)
         {
             res += user + '\n';
         }
-        MessageBox.Show(res);
+        if(res == "")
+            MessageBox.Show("No debts");
+        else
+            MessageBox.Show(res);
     }
-
 
 
     public event PropertyChangedEventHandler? PropertyChanged;
